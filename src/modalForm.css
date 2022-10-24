@@ -1,0 +1,154 @@
+.modal-container {
+  position: fixed;
+  top: 10%;
+  left: auto;
+  width: 40%;
+  min-width: 100px;
+}
+
+.top-wrapper,
+.bottom-wrapper {
+  box-sizing: border-box;
+  background-color: #03a9f5;
+  color: #fff;
+}
+
+.top-wrapper {
+  padding: 2em 2em 1em;
+}
+
+.bottom-wrapper {
+  padding: 0 2em 2em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  transition: all 0.5s ease-in-out;
+  transform-origin: top;
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+  margin-top: -1px;
+}
+
+.bottom-wrapper::after {
+  position: absolute;
+  content: "";
+  display: block;
+  opacity: 0;
+  background: #03a9f5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+form .submit-card {
+  color: #222;
+  text-align: center;
+  padding: 0.5em;
+  box-sizing: border-box;
+  width: 80%;
+  box-shadow: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+  margin: auto;
+  background-color: #c6c6;
+}
+.double {
+  display: flex;
+  justify-content: space-between;
+}
+form label {
+  font-size: 20px;
+}
+.numberInput {
+  width: 30% !important;
+  color: black;
+  padding-left: 0 !important;
+  appearance: textfield;
+}
+
+.discount {
+  appearance: "textfield";
+  -moz-appearance: textfield;
+  background: none;
+  width: 30px;
+  border: 1px solid white;
+  text-align: center;
+}
+
+.closeButton {
+  position: absolute;
+  font-size: 17px;
+  border-radius: 13px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.modalHead {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.modalborder {
+  height: 30px;
+  background-color: #454545;
+}
+
+.footerModal {
+  border-radius: 0px 0px 0.5rem 0.5rem;
+}
+
+.selectBox {
+  height: 30px;
+  background: #c6c6c6;
+  border: none;
+  border-radius: 6px;
+  padding-left: 10px;
+  width: 100%;
+  text-align: center;
+}
+.input {
+  align-items: center;
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+.content-select {
+  width: 85%;
+}
+
+.products {
+  width: 100%;
+  margin-left: 14px;
+  margin-right: 15px;
+}
+
+.productsTable {
+  height: 100px;
+  max-height: 200px;
+  display: block;
+  overflow-y: auto;
+}
+.thead {
+  display: block;
+}
+.trHead {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.trHead th {
+  width: 50%;
+  border:1px solid #768c73a3
+}
+
+.plusicon {
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  margin-left: 10px;
+  border: 1px solid;
+}
