@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { client, product } from "../../interfaces";
-import "../../modalForm.css";
+import "../../Styles/NewInvoice.css";
 import { getClients, getProducts } from "../../urls";
 import InvoiceView from "./addInvoiceView";
 

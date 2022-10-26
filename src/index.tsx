@@ -1,8 +1,9 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import App from "./App";
+import App from "./Components/App";
 import InvoiceDetails from "./Components/invoiceDetails/invoiceDetails";
 import reportWebVitals from "./reportWebVitals";
+import './Styles/index.css'
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

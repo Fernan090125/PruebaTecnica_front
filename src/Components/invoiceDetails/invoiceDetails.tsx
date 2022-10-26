@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { addedproduct } from "../../interfaces";
 import { getClients, getInvoices, getProducts } from "../../urls";
-import "../../App.css";
+import "../../Styles/Details.css";
 import { FaBackward } from "react-icons/fa";
 
 function InvoiceDetails() {

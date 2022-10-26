@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import Table from "./Components/table";
-import { invoiceData as row } from "./interfaces";
+import "../Styles/App.css";
+import Table from "./table";
+import { invoiceData as row } from "../interfaces";
 import axios from "axios";
-import { getClients, getInvoices } from "./urls";
-import AddInvoice from "./Components/addInvoice/addInvoice";
+import { getClients, getInvoices } from "../urls";
+import AddInvoice from "./addInvoice/addInvoice";
 
 function App() {
   const [rows, setrows] = useState<row[]>([]);
