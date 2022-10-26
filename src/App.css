@@ -1,24 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
+  /* border: 1px solid; */
 }
 
 .container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 5% 0 5% 0;
+  align-items: center;
+  padding: 2% 0 2% 0;
+  flex-direction: column;
 }
 
 .subContainer {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 70vw;
+  margin-top: 2%;
+  border-radius: 10px;
 }
+.AddButton {
+  margin-bottom: 10px;
+}
+
 .AddButton {
   height: 40px;
   width: 200px;
@@ -27,34 +35,23 @@
   border-radius: 10px;
   text-align: center;
   color: white;
-  display: flex;
-  justify-content: left;
-  margin-bottom: 10px;
-}
-
-.AddButton button {
-  height: 40px;
-  width: 200px;
-  background-color: #6c7ae0;
-  border: none;
-  border-radius: 10px;
-  text-align: center;
-  color: white;
+  padding-top: 7px;
 }
 
 .invocesTable {
   display: block;
   width: 100%;
-
+  border-radius: 10px;
 }
 
 .head {
   width: 100%;
+  display: block;
 }
 .headRow {
   width: 100%;
   display: inline-flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -64,8 +61,7 @@
   min-width: 14%;
 }
 .tbody {
-  flex-direction: column;
-  display: flex;
+  display: block;
 }
 .row {
   justify-content: space-between;
@@ -98,7 +94,33 @@ tr:nth-child(even) {
   background-color: rgb(246, 236, 236);
   margin-bottom: 1px;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  width: 70vw;
+  justify-content: space-between;
+}
+.logo img {
+  width: 100%;
+  max-width: max-content;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.topheader {
+  margin-bottom: 20px;
+  color: #505050;
+}
+
 @media screen and (width<700px) {
+  .logo {
+    flex-direction: column;
+  }
   table {
     display: block;
     overflow-x: auto;
@@ -110,7 +132,22 @@ tr:nth-child(even) {
   .tableHeader {
     width: 100px;
   }
-  .row {
+  .row,
+  .head {
     width: 700px;
   }
 }
+@media (max-width: 500px) {
+  .AddButton {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .logo{
+    padding: 0 15px;
+  }
+  h2 {
+    display: none;
+  }
+}
+

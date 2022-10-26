@@ -1,7 +1,7 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import App from "./App";
+import InvoiceDetails from "./Components/invoiceDetails/invoiceDetails";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <Router>
     <Routes>
-        <Route path="Home/:id" element={<div>aa</div>} />
+        <Route path="/Invoices/:id" element={<InvoiceDetails/>} />
         <Route path="/" element={<App/>} />
     </Routes>
   </Router>

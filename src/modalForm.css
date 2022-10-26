@@ -1,48 +1,21 @@
 .modal-container {
   position: fixed;
-  top: 10%;
-  left: auto;
-  width: 40%;
+  width: 50vw;
+  height: 80vh;
   min-width: 100px;
-}
-
-.top-wrapper,
-.bottom-wrapper {
-  box-sizing: border-box;
-  background-color: #03a9f5;
-  color: #fff;
-}
-
-.top-wrapper {
-  padding: 2em 2em 1em;
-}
-
-.bottom-wrapper {
-  padding: 0 2em 2em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  transition: all 0.5s ease-in-out;
-  transform-origin: top;
-  transform-style: preserve-3d;
-  position: relative;
-  overflow: hidden;
-  margin-top: -1px;
-}
-
-.bottom-wrapper::after {
-  position: absolute;
-  content: "";
-  display: block;
-  opacity: 0;
-  background: #03a9f5;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  z-index: 1;
+  background-color: #fff6f6;
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.54);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.54);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.54);
+  padding: 3%;
+  border-radius: 10px;
+  top: 10%;
 }
 form .submit-card {
-  color: #222;
+  color: white;
   text-align: center;
   padding: 0.5em;
   box-sizing: border-box;
@@ -51,7 +24,8 @@ form .submit-card {
   border-radius: 0.25em;
   cursor: pointer;
   margin: auto;
-  background-color: #c6c6;
+  background-color: #8ebcbc;
+  margin-top: 25px;
 }
 .double {
   display: flex;
@@ -68,20 +42,29 @@ form label {
 }
 
 .discount {
+  width: 100px;
+  text-align: end;
+  color: #505050;
+}
+
+.discount input {
   appearance: "textfield";
   -moz-appearance: textfield;
   background: none;
-  width: 30px;
-  border: 1px solid white;
   text-align: center;
+  border: none;
+  width: 20%;
+  border: 1px solid burlywood;
+  border-radius: 5px;
 }
 
 .closeButton {
   position: absolute;
   font-size: 17px;
   border-radius: 13px;
-  right: 0px;
   cursor: pointer;
+  right: 0;
+  top: 0;
 }
 
 .modalHead {
@@ -100,55 +83,189 @@ form label {
 
 .selectBox {
   height: 30px;
-  background: #c6c6c6;
   border: none;
   border-radius: 6px;
   padding-left: 10px;
-  width: 100%;
   text-align: center;
-}
-.input {
-  align-items: center;
-  display: flex;
-  margin-bottom: 15px;
-  justify-content: space-between;
-}
-.content-select {
-  width: 85%;
+  background: none;
+  color: #505050;
 }
 
 .products {
-  width: 100%;
-  margin-left: 14px;
+  width: fit-content;
   margin-right: 15px;
 }
 
 .productsTable {
-  height: 100px;
-  max-height: 200px;
-  display: block;
-  overflow-y: auto;
+  width: 100%;
+  margin: 0 3%;
+  background-color: #fff6f6;
+  padding: 0 5%;
+  height: 100%;
+}
+
+.productsTable tbody {
+  min-height: 120px;
+  border-bottom: 1px solid #8ebcbc;
 }
 .thead {
   display: block;
+  height: 35px;
 }
 .trHead {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  height: 100%;
 }
 
 .trHead th {
   width: 50%;
-  border:1px solid #768c73a3
+  border: 1px solid #768c73a3;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .plusicon {
-  padding: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
   margin-left: 10px;
-  border: 1px solid;
+}
+
+.addPPart {
+  display: flex;
+  align-items: center;
+  max-width: fit-content;
+}
+.BottomElements,
+.total {
+  margin-right: 12%;
+  color: #8db9ba;
+}
+.BottomElements .input {
+  margin: 0;
+  display: flex;
+  justify-content: end;
+}
+.BottomElements .input label:last-child {
+  color: #505050;
+}
+
+.BottomElements .input label,
+.total label {
+  width: 100px;
+  text-align: end;
+}
+.total {
+  display: inline-flex;
+  justify-content: end;
+  width: 100%;
+  padding-right: 12%;
+}
+.total label:last-child {
+  color: #505050;
+}
+
+.true {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  /* background-color: rgba(128, 128, 128, 0.635); */
+  filter: blur(5px);
+  z-index: -1;
+}
+form {
+  height: 100%;
+}
+.tittle-date {
+  text-align: end;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+.tittle-date h1 {
+  color: #d6e6dc;
+}
+
+.tittle-date h2 {
+  color: #bababa;
+}
+.client {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  color: #505050;
+}
+
+.tableback {
+  background-color: #8ebcbc;
+  width: 100%;
+  display: inline-flex;
+}
+
+.thhead {
+  border: 0 !important;
+  background-color: #8ababa;
+  color: white;
+}
+
+.clientPart {
+  display: inline-flex;
+}
+
+.pquantity {
+  max-width: 40px;
+  color: black;
+  padding-left: 0 !important;
+  appearance: textfield;
+  border: 1px solid burlywood;
+}
+
+.rowProducts {
+  justify-content: space-between;
+  display: inline-flex;
+  width: 100%;
+}
+.Product {
+  width: 50%;
+  padding: 16px 5px 16px 5px;
+  color: gray;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 40px;
+  text-align: center;
+  min-width: 65px;
+}
+
+@media (max-width: 1000px) {
+  .client {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .addPPart {
+    order: 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .tittle-date {
+    text-align: center;
+  }
+  .addPPart{
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 515px) {
+  .clientPart label {
+    display: none;
+  }
+}
+@media (max-width: 450px) {
+  .clientPart label {
+    display: none;
+  }
 }

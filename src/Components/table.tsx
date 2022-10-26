@@ -1,8 +1,10 @@
 import { invoiceData as row } from "../interfaces";
 import { FaEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Table(props: any) {
   const rows = props.rows.map((row: row) => {
+    const route = "/Invoices/" + row.Invoice_Number;
     return (
       <tr className="row" key={row.Invoice_Number}>
         <th className="rowElement TableColum">{row.Invoice_Number}</th>
@@ -11,7 +13,11 @@ export default function Table(props: any) {
         <th className="rowElement">${row.SubTotal}</th>
         <th className="rowElement">{row.Discout}%</th>
         <th className="rowElement">${row.Total}</th>
-        <th className="rowElement"><FaEye/></th>
+        <th className="rowElement">
+          <Link to={route}>
+            <FaEye />
+          </Link>
+        </th>
       </tr>
     );
   });
@@ -30,7 +36,7 @@ export default function Table(props: any) {
             <th className="tableHeader "></th>
           </tr>
         </thead>
-        <tbody className="tboduy">{rows}</tbody>
+        <tbody className="tbody">{rows}</tbody>
       </table>
     </>
   );

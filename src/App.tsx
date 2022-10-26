@@ -3,31 +3,39 @@ import "./App.css";
 import Table from "./Components/table";
 import { invoiceData as row } from "./interfaces";
 import axios from "axios";
-import { getInvoices } from "./urls";
+import { getClients, getInvoices } from "./urls";
 import AddInvoice from "./Components/addInvoice/addInvoice";
 
 function App() {
   const [rows, setrows] = useState<row[]>([]);
+  const [clientsNames, setclientsNames] = useState<string[]>([]);
   const [show, setshow] = useState<boolean>(false);
 
   useEffect(() => {
-    axios.get(getInvoices).then((response) => {
+    async function getclient(id: any) {
+      return await axios.get(getClients + id);
+    }
+
+    async function getrows() {
+      const invoices = await axios.get(getInvoices);
       const data: row[] = [];
-      response.data.response.map((element: any) => {
-        const fecha = new Date(element.Dte).toLocaleDateString();
+      for (let i = 0; i < invoices.data.response.length; i++) {
+        const invoice = invoices.data.response[i];
+        const client = await getclient(invoice.IDClient);
+        const fecha = new Date(invoice.Dte).toLocaleDateString();
         data.push({
-          Invoice_Number: element.Invoice_ID,
-          Client: element.IDClient,
+          Invoice_Number: invoice.Invoice_ID,
+          Client: client.data.res[0].Client_Name,
           Date: fecha,
-          SubTotal: element.Subtotal,
-          Discout: element.Discount,
-          Total: element.Total,
+          SubTotal: invoice.Subtotal,
+          Discout: invoice.Discount,
+          Total: invoice.Total,
         });
-        return true;
-      });
+      }
       setrows(data);
-      console.log("loaded");
-    });
+    }
+
+    getrows();
   }, [show]);
 
   const addRow = () => {
@@ -39,18 +47,25 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <AddInvoice close={close} show={show} />
-      <div className="subContainer">
-        <div className="AddButton">
-          <button onClick={() => addRow()}>
-            New Invoice
-          </button>
+    <>
+      <div>
+        <div className="container">
+          <div className={String(show) + " container"}>
+            <div className="logo">
+              <img src="/logo.jpeg" alt="" />
+              <h2>AIM EdgeApps</h2>
+            </div>
+            <div className="subContainer">
+              <div className="AddButton" onClick={() => addRow()}>
+                New Invoice
+              </div>
+              <Table rows={rows} />
+            </div>
+          </div>
+          <AddInvoice close={close} show={show} />
         </div>
-        <Table rows={rows} />
       </div>
-
-    </div>
+    </>
   );
 }
 

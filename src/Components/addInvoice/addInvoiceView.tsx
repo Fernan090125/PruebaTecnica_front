@@ -14,6 +14,7 @@ function InvoiceView(props: any) {
   const [subTotal, setSubTotal] = useState<number>(0);
   const [Total, setTotal] = useState<number>(0);
   const [Addedproducts, setProductsAdded] = useState<addedproduct[]>([]);
+  const [fecha, setFecha] = useState<Date>(new Date());
 
   const clientsSelect = ClientsList.map((client: client) => {
     return <option value={client.Client_ID}>{client.Client_Name}</option>;
@@ -25,9 +26,9 @@ function InvoiceView(props: any) {
 
   const laproducts = Addedproducts.map((row: addedproduct) => {
     return (
-      <tr className="row">
-        <td className="rowElement">{row.name}</td>
-        <td className="rowElement">{row.quantity}</td>
+      <tr className="rowProducts">
+        <td className="Product">{row.name}</td>
+        <td className="Product">{row.quantity}</td>
       </tr>
     );
   });
@@ -46,12 +47,33 @@ function InvoiceView(props: any) {
           setSubTotal(price);
         });
 
-      axios.get(getProduct + id).then((response) => {
-        setProductsAdded([
-          ...Addedproducts,
-          { name: response.data.res[0].Product_Name, quantity, id },
-        ]);
-      });
+      var dif = true;
+      for (let i = 0; i < Addedproducts.length; i++) {
+        if (Addedproducts[i].id == id) {
+          const newa = Addedproducts.map((e) => {
+            if (e.id === id) {
+              return {
+                id: e.id,
+                quantity: e.quantity + quantity,
+                name: e.name,
+              };
+            } else {
+              return e;
+            }
+          });
+          setProductsAdded(newa);
+          dif = false;
+        }
+      }
+
+      if (dif && Addedproducts.length < 10) {
+        axios.get(getProduct + id).then((response) => {
+          setProductsAdded([
+            ...Addedproducts,
+            { name: response.data.res[0].Product_Name, quantity, id },
+          ]);
+        });
+      }
     }
   };
 
@@ -85,111 +107,122 @@ function InvoiceView(props: any) {
       axios.post(postInvoice, data).then((res) => {
         console.log(res.data);
       });
-      props.close()
+      props.close();
     }
   };
 
   return (
-    <div className="modal-container">
-      <div className="modalborder modalHead">
+    <>
+      <div className="modal-container">
         <GrClose
           className="closeButton"
           onClick={() => {
             props.close();
           }}
         />
-      </div>
-      <form>
-        <div className="top-wrapper">
-          <div className="input">
-            <label>Client</label>
-            <div className="content-select">
+        <div className="topModal">
+          <div className="tittle-date">
+            <h1>INVOICE</h1>
+            <h2>{fecha.toLocaleDateString()}</h2>
+          </div>
+        </div>
+        <form>
+          <div className="client">
+            <div className="addPPart">
               <select
-                name="Client"
-                id="Client"
-                className="selectBox"
-                onChange={(event) => {
-                  setClientid(Number(event.target.value));
+                name="Product"
+                id="Products"
+                className="selectBox products"
+                onChange={(e) => {
+                  setProSel(Number(e.target.value));
                 }}
               >
-                {clientsSelect}
+                {productsSelect}
               </select>
-              <i></i>
+              <div style={{display:"flex",alignItems:"center"}}>
+                <input
+                  type="number"
+                  className="selectBox pquantity"
+                  onChange={(e) => {
+                    if (
+                      isNaN(Number(e.target.value)) === false &&
+                      Number(e.target.value) > 0
+                    ) {
+                      setQuaSel(Number(e.target.value));
+                    } else {
+                      e.target.value = "0";
+                    }
+                  }}
+                />
+                <FaPlus
+                  onClick={() => {
+                    addProduct();
+                  }}
+                  className="plusicon"
+                />
+              </div>
+            </div>
+            <div className="clientPart">
+              <label>Invoice to</label>
+              <div className="content-select">
+                <select
+                  name="Client"
+                  id="Client"
+                  className="selectBox"
+                  onChange={(event) => {
+                    setClientid(Number(event.target.value));
+                  }}
+                >
+                  {clientsSelect}
+                </select>
+              </div>
             </div>
           </div>
           <div className="input double">
-            <label>Products</label>
-            <select
-              name="Product"
-              id="Products"
-              className="selectBox products"
-              onChange={(e) => {
-                setProSel(Number(e.target.value));
-              }}
-            >
-              {productsSelect}
-            </select>
-            <input
-              type="number"
-              className="selectBox numberInput"
-              onChange={(e) => {
-                if (
-                  isNaN(Number(e.target.value)) === false &&
-                  Number(e.target.value) > 0
-                ) {
-                  setQuaSel(Number(e.target.value));
-                } else {
-                  e.target.value = "0";
-                }
-              }}
-            />
-            <FaPlus
-              onClick={() => {
-                addProduct();
-              }}
-              className="plusicon"
-            />
-          </div>
-          <table className="productsTable">
-            <thead className="thead">
-              <tr className="trHead">
-                <th>Product</th>
-                <th>Quantity</th>
-              </tr>
-            </thead>
-            <tbody style={{ display: "block" }}>{laproducts}</tbody>
-          </table>
-          <div className="input">
-            <label>Subtotal</label>
-            <label>{subTotal}</label>
-          </div>
-          <div className="input">
-            <label>Discout</label>
-            <div>
-              <input
-                type="text"
-                className="discount"
-                onChange={(event) => {
-                  var value = event.target.value;
-                  if (isNaN(Number(value)) === false) {
-                    if (Number(value) > 100) {
-                      value = String(100);
-                    } else {
-                      if (Number(value) < 0) {
-                        value = String(0);
-                      }
-                    }
-                    event.target.value = value;
-                    setdiscout(Number(value));
-                  } else {
-                    event.target.value = String(0);
-                  }
-                }}
-              />
-              %
+            <div className="tableback">
+              <table className="productsTable">
+                <thead className="thead">
+                  <tr className="trHead">
+                    <th className="thhead">Product</th>
+                    <th className="thhead">Quantity</th>
+                  </tr>
+                </thead>
+                <tbody style={{ display: "block" }}>{laproducts}</tbody>
+              </table>
             </div>
           </div>
-          <div className="input">
+          <div className="BottomElements">
+            <div className="input">
+              <label>Subtotal</label>
+              <label>{subTotal}</label>
+            </div>
+            <div className="input">
+              <label>Discout</label>
+              <div className="discount">
+                <input
+                  type="text"
+                  onChange={(event) => {
+                    var value = event.target.value;
+                    if (isNaN(Number(value)) === false) {
+                      if (Number(value) > 100) {
+                        value = String(100);
+                      } else {
+                        if (Number(value) < 0) {
+                          value = String(0);
+                        }
+                      }
+                      event.target.value = value;
+                      setdiscout(Number(value));
+                    } else {
+                      event.target.value = String(0);
+                    }
+                  }}
+                />
+                %
+              </div>
+            </div>
+          </div>
+          <div className="total">
             <label>Total</label>
             <label>{Total}</label>
           </div>
@@ -201,10 +234,9 @@ function InvoiceView(props: any) {
           >
             Save Invoice
           </div>
-        </div>
-      </form>
-      <div className="modalborder footerModal"></div>
-    </div>
+        </form>
+      </div>
+    </>
   );
 }
 
