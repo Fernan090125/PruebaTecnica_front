@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import App from "./Components/App";
-import InvoiceDetails from "./Components/invoiceDetails/invoiceDetails";
+import App from "./Pages/allInvoices/AllInvoices";
+import InvoiceDetails from "./Pages/invoiceDetails/invoiceDetails";
 import reportWebVitals from "./reportWebVitals";
 import './Styles/index.css'
 
@@ -11,13 +11,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <Router>
     <Routes>
-        <Route path="/Invoices/:id" element={<InvoiceDetails/>} />
+        <Route path="/Invoices/:Id" element={<InvoiceDetails/>} />
         <Route path="/" element={<App/>} />
     </Routes>
   </Router>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

@@ -1,10 +1,18 @@
-export interface invoiceData {
-  Invoice_Number: number;
+export interface InvoiceTable {
+  InvoiceNumber: number;
   Client: string;
   Date: string;
   SubTotal: number;
-  Discout: number;
+  Discount: number;
   Total: number;
+}
+
+export interface DetailsTable {
+  DetailsID: number;
+  ProductID: number;
+  Name: string;
+  Description: string;
+  Quantity: number;
 }
 
 export interface product {
@@ -17,22 +25,22 @@ export interface product {
 export interface client {
   Client_ID: number;
   Client_Name: string;
-  Point_of_Contact: string;
+  Point_Of_Contact: string;
   Phone_Number: string;
   Email: string;
 }
 
-export interface addedproduct {
-  name: string;
-  quantity: number;
-  id:number;
+export interface addedProduct {
+  Name: string;
+  Quantity: number;
+  Id: number;
 }
 
-export interface invoicetopost {
+export interface invoiceToPost {
   IDClient: number;
   Dte: string;
   SubTotal: number;
-  Discout: number;
+  Discount: number;
   Total: number;
-  products: addedproduct[];
+  Products: addedProduct[];
 }

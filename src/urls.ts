@@ -1,6 +1,8 @@
-export const getInvoices="http://localhost:3001/Invoces/"
-export const getProducts="http://localhost:3001/Products/"
-export const getProduct="http://localhost:3001/Products/"
-export const getClients="http://localhost:3001/Clients/"
-export const getmidprice="http://localhost:3001/Invoces/subtotal"
-export const postInvoice="http://localhost:3001/Invoces"
+const Host = process.env.REACT_APP_API_HOST;
+
+export const getInvoices = Host + "/Invoices/";
+export const getProducts = Host + "/Products/";
+export const getProduct  = Host + "/Products/";
+export const getClients  = Host + "/Clients/";
+export const getMidPrice = Host + "/Invoices/subtotal";
+export const postInvoice = Host + "/Invoices";

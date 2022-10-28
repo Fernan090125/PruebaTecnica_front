@@ -8,7 +8,7 @@
   /* border: 1px solid; */
 }
 
-.container {
+.Container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,19 +33,19 @@ tr:nth-child(even) {
   margin-bottom: 1px;
 }
 
-.logo {
+.Logo {
   display: flex;
   align-items: center;
   width: 70vw;
   justify-content: space-between;
 }
-.logo img {
+.Logo img {
   width: 100%;
   max-width: max-content;
 }
 
 @media screen and (width<700px) {
-  .logo {
+  .Logo {
     flex-direction: column;
   }
   table {
@@ -65,7 +65,7 @@ tr:nth-child(even) {
 }
 
 @media (max-width: 400px) {
-  .logo {
+  .Logo {
     padding: 0 15px;
   }
   h2 {

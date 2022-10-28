@@ -1,272 +1,268 @@
 .modal-container {
-    position: fixed;
-    width: 50vw;
-    height: 80vh;
-    min-width: 100px;
-    overflow-y: auto;
-    scrollbar-width: none;
-    z-index: 1;
-    background-color: #fff6f6;
-    -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.54);
-    -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.54);
-    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.54);
-    padding: 3%;
-    border-radius: 10px;
-    top: 10%;
+  position: fixed;
+  width: 50vw;
+  height: 80vh;
+  min-width: 100px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  z-index: 1;
+  background-color: #fff6f6;
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.54);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.54);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.54);
+  padding: 3%;
+  border-radius: 10px;
+  top: 10%;
+  max-height: 500px;
+}
+form .submit-card {
+  color: white;
+  padding: 0.5em;
+  width: 80%;
+  border-radius: 0.25em;
+  cursor: pointer;
+  border: none;
+  background-color: #618080;
+  margin: 25px 10% 0 10%;
+}
+.double {
+  display: flex;
+  justify-content: space-between;
+}
+form label {
+  font-size: 20px;
+}
+.numberInput {
+  width: 30% !important;
+  color: black;
+  padding-left: 0 !important;
+  appearance: textfield;
+}
+
+.discount {
+  width: 100px;
+  text-align: end;
+  color: #505050;
+}
+
+.discount input {
+  appearance: "textfield";
+  -moz-appearance: textfield;
+  background: none;
+  text-align: center;
+  border: none;
+  width: 30%;
+  border: 1px solid burlywood;
+  border-radius: 5px;
+}
+
+.closeButton {
+  position: absolute;
+  font-size: 17px;
+  border-radius: 13px;
+  cursor: pointer;
+  right: 4px;
+  top: 4px;
+}
+
+.modalHead {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+/* 
+.modalBorder {
+  height: 30px;
+  background-color: #454545;
+} */
+
+.footerModal {
+  border-radius: 0px 0px 0.5rem 0.5rem;
+}
+
+.selectBox {
+  height: 30px;
+  border: none;
+  border-radius: 6px;
+  padding-left: 10px;
+  text-align: center;
+  background: none;
+  color: #505050;
+}
+
+.products {
+  width: fit-content;
+  margin-right: 15px;
+}
+
+.productsTable {
+  width: 100%;
+  margin: 0 3%;
+  background-color: #fff6f6;
+  padding: 0 5%;
+  height: 100%;
+  min-height: 120px;
+}
+
+.productsTable tbody {
+  border-bottom: 1px solid #8ebcbc;
+}
+.thead {
+  display: block;
+  height: 35px;
+}
+.trHead {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.trHead th {
+  width: 50%;
+  border: 1px solid #768c73a3;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.plusIcon {
+  margin-left: 10px;
+}
+
+.addPPart {
+  display: flex;
+  align-items: center;
+  max-width: fit-content;
+}
+.BottomElements,
+.total {
+  margin-right: 12%;
+  color: #8db9ba;
+}
+.BottomElements .input {
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.BottomElements .input label:last-child {
+  color: #505050;
+}
+
+.BottomElements .input label,
+.total label {
+  width: 100px;
+  text-align: end;
+}
+.total {
+  display: inline-flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 12%;
+}
+.total label:last-child {
+  color: #505050;
+}
+
+.true {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  /* background-color: rgba(128, 128, 128, 0.635); */
+  filter: blur(5px);
+  z-index: -1;
+}
+form {
+  height: 100%;
+}
+.tittle-date {
+  text-align: end;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+.tittle-date h1 {
+  color: #618080;
+}
+
+.tittle-date h2 {
+  color: #618080;
+}
+.client {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  color: #505050;
+}
+
+.TableBackground {
+  background-color: #618080;
+  width: 100%;
+  display: inline-flex;
+}
+
+.thHead {
+  border: 0 !important;
+  background-color: #618080;
+  color: white;
+}
+
+.clientPart {
+  display: inline-flex;
+}
+
+.ProductQuantity {
+  max-width: 40px;
+  color: black;
+  padding-left: 0 !important;
+  appearance: textfield;
+  border: 1px solid burlywood;
+}
+
+.rowProducts {
+  justify-content: space-between;
+  display: inline-flex;
+  width: 100%;
+}
+.Product {
+  width: 50%;
+  padding: 16px 5px 16px 5px;
+  color: gray;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 40px;
+  text-align: center;
+  min-width: 65px;
+}
+
+@media (max-width: 1000px) {
+  .client {
+    flex-direction: column;
+    margin-bottom: 20px;
   }
-  form .submit-card {
-    color: white;
+  .addPPart {
+    order: 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .tittle-date {
     text-align: center;
-    padding: 0.5em;
-    box-sizing: border-box;
-    width: 80%;
-    box-shadow: none;
-    border-radius: 0.25em;
-    cursor: pointer;
-    margin: auto;
-    background-color: #8ebcbc;
-    margin-top: 25px;
   }
-  .double {
-    display: flex;
-    justify-content: space-between;
-  }
-  form label {
-    font-size: 20px;
-  }
-  .numberInput {
-    width: 30% !important;
-    color: black;
-    padding-left: 0 !important;
-    appearance: textfield;
-  }
-  
-  .discount {
-    width: 100px;
-    text-align: end;
-    color: #505050;
-  }
-  
-  .discount input {
-    appearance: "textfield";
-    -moz-appearance: textfield;
-    background: none;
-    text-align: center;
-    border: none;
-    width: 20%;
-    border: 1px solid burlywood;
-    border-radius: 5px;
-  }
-  
-  .closeButton {
-    position: absolute;
-    font-size: 17px;
-    border-radius: 13px;
-    cursor: pointer;
-    right: 0;
-    top: 0;
-  }
-  
-  .modalHead {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-  }
-  
-  .modalborder {
-    height: 30px;
-    background-color: #454545;
-  }
-  
-  .footerModal {
-    border-radius: 0px 0px 0.5rem 0.5rem;
-  }
-  
-  .selectBox {
-    height: 30px;
-    border: none;
-    border-radius: 6px;
-    padding-left: 10px;
-    text-align: center;
-    background: none;
-    color: #505050;
-  }
-  
-  .products {
-    width: fit-content;
-    margin-right: 15px;
-  }
-  
-  .productsTable {
-    width: 100%;
-    margin: 0 3%;
-    background-color: #fff6f6;
-    padding: 0 5%;
-    height: 100%;
-  }
-  
-  .productsTable tbody {
-    min-height: 120px;
-    border-bottom: 1px solid #8ebcbc;
-  }
-  .thead {
-    display: block;
-    height: 35px;
-  }
-  .trHead {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .trHead th {
-    width: 50%;
-    border: 1px solid #768c73a3;
-    height: 100%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .plusicon {
-    margin-left: 10px;
-  }
-  
   .addPPart {
     display: flex;
-    align-items: center;
-    max-width: fit-content;
+    flex-direction: column;
   }
-  .BottomElements,
-  .total {
-    margin-right: 12%;
-    color: #8db9ba;
+}
+
+@media (max-width: 515px) {
+  .clientPart label {
+    display: none;
   }
-  .BottomElements .input {
-    margin: 0;
-    display: flex;
-    justify-content: end;
+}
+@media (max-width: 450px) {
+  .clientPart label {
+    display: none;
   }
-  .BottomElements .input label:last-child {
-    color: #505050;
-  }
-  
-  .BottomElements .input label,
-  .total label {
-    width: 100px;
-    text-align: end;
-  }
-  .total {
-    display: inline-flex;
-    justify-content: end;
-    width: 100%;
-    padding-right: 12%;
-  }
-  .total label:last-child {
-    color: #505050;
-  }
-  
-  .true {
-    position: absolute;
-    height: 100%;
-    width: 100vw;
-    /* background-color: rgba(128, 128, 128, 0.635); */
-    filter: blur(5px);
-    z-index: -1;
-  }
-  form {
-    height: 100%;
-  }
-  .tittle-date {
-    text-align: end;
-    font-family: "Nanum Gothic", sans-serif;
-  }
-  
-  .tittle-date h1 {
-    color: #d6e6dc;
-  }
-  
-  .tittle-date h2 {
-    color: #bababa;
-  }
-  .client {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-    color: #505050;
-  }
-  
-  .tableback {
-    background-color: #8ebcbc;
-    width: 100%;
-    display: inline-flex;
-  }
-  
-  .thhead {
-    border: 0 !important;
-    background-color: #8ababa;
-    color: white;
-  }
-  
-  .clientPart {
-    display: inline-flex;
-  }
-  
-  .pquantity {
-    max-width: 40px;
-    color: black;
-    padding-left: 0 !important;
-    appearance: textfield;
-    border: 1px solid burlywood;
-  }
-  
-  .rowProducts {
-    justify-content: space-between;
-    display: inline-flex;
-    width: 100%;
-  }
-  .Product {
-    width: 50%;
-    padding: 16px 5px 16px 5px;
-    color: gray;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-height: 40px;
-    text-align: center;
-    min-width: 65px;
-  }
-  
-  @media (max-width: 1000px) {
-    .client {
-      flex-direction: column;
-      margin-bottom: 20px;
-    }
-    .addPPart {
-      order: 2;
-    }
-  }
-  
-  @media (max-width: 700px) {
-    .tittle-date {
-      text-align: center;
-    }
-    .addPPart{
-      display: flex;
-      flex-direction: column;
-    }
-  
-  }
-  
-  @media (max-width: 515px) {
-    .clientPart label {
-      display: none;
-    }
-  }
-  @media (max-width: 450px) {
-    .clientPart label {
-      display: none;
-    }
-  }
-  
+}
